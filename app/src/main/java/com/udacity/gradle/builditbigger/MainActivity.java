@@ -7,7 +7,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements JokeAsyncTask.JokeAsyncTaskDelegate {
+
+    private JokeAsyncTask asyncTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-        String joke = "derp";
+        if (asyncTask != null) {
+            return;
+        }
+        asyncTask = new JokeAsyncTask(this);
+        asyncTask.execute();
+    }
+
+    @Override
+    public void onJokeResult(String joke) {
+        asyncTask = null;
         Intent intent = new Intent(this, JokeActivity.class);
         intent.putExtra(JokeActivity.EXTRA_JOKE, joke);
         this.startActivity(intent);
