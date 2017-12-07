@@ -1,4 +1,4 @@
-package com.udacity.gradle.builditbigger;
+package com.udacity.gradle.builditbigger.jokeviewer;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

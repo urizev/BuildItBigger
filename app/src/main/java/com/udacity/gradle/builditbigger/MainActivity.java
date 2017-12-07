@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.udacity.gradle.builditbigger.jokeviewer.JokeActivity;
+
 public class MainActivity extends AppCompatActivity implements JokeAsyncTask.JokeAsyncTaskDelegate {
 
     private JokeAsyncTask asyncTask;

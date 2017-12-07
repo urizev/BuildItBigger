@@ -18,6 +18,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    dexOptions {
+        preDexLibraries = false
+    }
 
     flavorDimensions 'tier'
     productFlavors {
@@ -30,7 +33,6 @@ android {
             applicationId "com.udacity.gradle.builditbigger.paid"
         }
     }
-
 }
 
 dependencies {
@@ -43,6 +45,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
         exclude group: 'com.google.code.findbugs'
     })
+
     compile 'com.android.support:appcompat-v7:26.1.0'
     freeCompile 'com.google.android.gms:play-services-ads:11.6.2'
 }
